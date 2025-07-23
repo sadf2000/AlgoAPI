@@ -58,17 +58,17 @@ print(a)
 """
 
 API.ParsePython() #Парсит твой пайтон проект
-API.ChangePyProject("Название", "Код") #Вставляет изменненный код
+API.ChangePyProject("Код",title="Название") #Вставляет изменненный код
 
 
 API.ChangeSettingsProject(title="Название проекта",desc="описание",preview="preview твоего проекта, лучше ставить на auto",remix=включить - 1; выключить - 0 ремикс)
 
 
-Serv.SimpleRGet() #Простой http GET запрос
+API.SimpleRGet() #Простой http GET запрос
 
 
 
-EmptyProject = Serv.ParseScratch() #Парсит твой скретч проект
+EmptyProject = API.ParseScratch() #Парсит твой скретч проект
 
 Source = BuildScratch(EmptyProject) #Спокойно берет код твоего проекта что бы легче взаимодействовать
 
