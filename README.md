@@ -119,3 +119,5 @@ ChangeScratchProject(Source.projectContentJSON)
 
 И в MyCode.py пишем название библиотеки:
 from AlgoAPI import * 
+
+Если не понятно, обращаетесь мне в тг https://t.me/LinusDanich
