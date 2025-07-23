@@ -66,6 +66,12 @@ API.ChangeSettingsProject(title="Название проекта",desc="опис
 
 API.SimpleRGet() #Простой http GET запрос
 
+#Твой аватар:
+
+API.AvatarDescChange(title="") #Если вы уверены, что хотите изменить описание вашего профиля
+
+API.LoadAvatar() #Обязательно сначало лучше использовать и сохранить где то в комментариях, значении вашего аватара
+ API.ChangeAvatar(items=None,character=None,gender=None,skinTone=None) - !!!изменяете аватар, только если вы использовали API.LoadAvatar(), и сохранили значение!!!
 
 
 EmptyProject = API.ParseScratch() #Парсит твой скретч проект
