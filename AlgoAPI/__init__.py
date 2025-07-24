@@ -1,6 +1,8 @@
 import requests,time,json,random
 from AlgoAPI.Functions import *
+from AlgoAPI.AlgoServe import *
 from AlgoAPI.BuildScratch import *
+from AlgoAPI.AlgoServeShifrovalchik import *
 #https://learn.algoritmika.org/api/v2/settings/geo/reverse
 #POST
 #{"accuracy": 124, "lat": 55.663433350177286, "lon": 37.905414853515545}
@@ -41,11 +43,10 @@ class AlgoAPI:
     self.urlSeeMyProjects = f"https://learn.algoritmika.org/api/v1/projects/index?expand=uploads&isDeleted=0&page=1&perPage=999&projectLang=all&scope=student&sort=-id&type=design%2Cgamedesign%2Cimages%2Cpresentation%2Cpython%2Cscratch%2Cunity%2Cvideo%2Cvscode%2Cwebsite"
     self.UpdateURLS()
 
-    self.Name = ""
-    self.Message = ""
     self.source = ''
     self.titlee = ''
     self.projectContent = ''
+    
   def ParseInfoProject(self,ID=None): 
     if not ID is None: self.ID = ID  
 
@@ -66,12 +67,15 @@ class AlgoAPI:
         self.Name = a["data"]["items"][0]["author"]["name"]
         self.Message = a["data"]["items"][0]["message"]
         self.IDU = a["data"]["items"][0]["author"]["id"]
-        print(self.Name, self.IDU)
-        print(self.Message)
+        #print(self.Name, self.IDU)
+        #print(self.Message)
+        return {"Name":self.Name,"Message":self.Message,"UserId":self.IDU}
       except (KeyError, IndexError, TypeError) as e:
         print(f"Ошибка при парсинге JSON(нету комментария): {e}")
+        return None
     except requests.exceptions.RequestException as e:
         print(f"Ошибка при запросе: {e}")
+        return None
 
   def ParseComments(self, lengthComment=2,ID=None):
     if not ID is None: self.ID = ID 

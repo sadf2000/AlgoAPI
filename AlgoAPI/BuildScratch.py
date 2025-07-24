@@ -39,5 +39,5 @@ class BuildScratch:
       del self.projectContentJSON["targets"][0]["lists"][idd]
     except (KeyError, TypeError) as e:
       print(f"Error deleting variable: {e}")
-  def result(self):
+  def Build(self):
     return self.projectContentJSON
